@@ -1,0 +1,177 @@
+# =============================================================================
+# Neuromodulation & Arousal Distilled — .gitignore  (Physis L1)
+# =============================================================================
+
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Distribution / Packaging
+.Python
+build/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+MANIFEST
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ── Jupyter Notebook ─────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# ── NumPy / SciPy cache ──────────────────────────────────────────────────────
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+
+# ── 신경조절 시뮬레이션 산출물 ───────────────────────────────────────────────
+# TD 학습 RPE 시행 로그, 가치 함수 수렴, 플립플롭 동역학, gain 모델의 직렬화 결과
+td_runs/               # TD 학습 RPE·가치 함수 시행 로그
+rpe_traces/            # 도파민(=RPE) 신호 궤적
+flipflop_runs/         # 각성 핵·VLPO 상호 억제 동역학
+arousal_sims/          # 각성-수면 전환 시뮬레이션
+gain_runs/             # NE/ACh gain·신호잡음비 모델
+*.trials
+
+# ── Experiment outputs ───────────────────────────────────────────────────────
+# 생성된 그림 (각 챕터)
+# Ch1: 신경전달/조절 시간 척도 · 전역 투사 도식 · 계산 파라미터 표
+# Ch2: 슐츠 신호 이동 열지도 · RPE/TD 곡선 · 세 경로 · D1/D2 · 탐색-활용
+# Ch3: 세로토닌 경로·수용체 아형 · SSRI 지연·자가수용체 탈감작 곡선
+# Ch4: NE gain 역U · ACh 선명화 · NE/ACh 주의 분업
+# Ch5: 각성 핵·VLPO 회로 · 플립플롭 히스테리시스 · 기면증 불안정 · REM/NREM
+# Ch6: 마취 시상-피질 · 환각제 엔트로피 · 단아민 가설·케타민
+# Ch7: TD(λ) 수렴 · 플립플롭 동역학 · gain 모델
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.gif
+*.mp4
+
+# 결과 / 로그
+results/
+outputs/
+logs/
+runs/
+*.log
+*.csv
+*.tsv
+
+# ── 매개변수 sweep ───────────────────────────────────────────────────────────
+# 학습률 α·할인율 γ sweep · 상호 억제 결합 w sweep · NE/ACh 수준 앙상블
+sweeps/
+param_studies/
+*.db
+*.sqlite
+*.sqlite3
+
+# ── 대규모 시뮬레이션 cache ──────────────────────────────────────────────────
+sim_cache/
+ensemble_cache/
+batch_results/
+
+# ── IDE / Editor ─────────────────────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+
+# ── Documentation build ──────────────────────────────────────────────────────
+docs/_build/
+docs/generated/
+site/
+.mkdocs_cache/
+
+# ── LaTeX / 수식 PDF 빌드 ────────────────────────────────────────────────────
+# 일부 문서가 .tex 로 회로·유도 수식 export 하는 경우 대비
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
+*.out
+*.bbl
+*.blg
+*.dvi
+*.lof
+*.lot
+
+# ── Secrets / Credentials ────────────────────────────────────────────────────
+.env.local
+.env.*.local
+secrets.py
+credentials.json
+*.pem
+*.key
+
+# ── Test / lint cache ────────────────────────────────────────────────────────
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ── 데이터 (참조·전기생리 데이터 보존, 원자료는 제외) ────────────────────────
+# 주의: 단일세포 발화율·EEG 등 전기생리 데이터는 연구윤리·라이선스 정책에 따라 커밋 금지
+data/
+datasets/
+raw/
+processed/
+recordings/
+!data/.gitkeep
